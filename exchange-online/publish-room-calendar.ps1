@@ -30,7 +30,7 @@ try{
     Write-Host "URLs for $email_address calendar are:" -ForegroundColor gray
     #Get-MailboxCalendarFolder -Identity $mailbox -DetailLevel Full 
     $MailboxProperties = Get-MailboxCalendarFolder -Identity $mailbox
-    Write-Host  ($MailboxProperties | Select -ExpandProperty "PublishedCalendarUrl")
+    Write-Host  ($MailboxProperties | Select-Object -ExpandProperty "PublishedCalendarUrl")
 }
 catch{
     Write-Host "An error occurred:" -ForegroundColor red
