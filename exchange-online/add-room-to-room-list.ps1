@@ -13,15 +13,14 @@ Param(
 ) 
 
 try{
-    # Create Office 365 session
-    Write-Host "Creating Office 365 session"  -ForegroundColor gray
-    $UserCredential = Get-Credential
-    $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
-    Import-PSSession $Session -DisableNameChecking
+    # Create ExchangeOnline session
+    Write-Host "Creating ExchangeOnline session"  -ForegroundColor gray
+    # Requires ExchangeOnline NOT Office 365 session since we use MFA on all Admin users
+	$Session = Connect-ExchangeOnline  -ConnectionUri https://ps.outlook.com/powershell
 
     # Add the room to the room list
     Write-Host "Adding room to room list" -ForegroundColor gray
-    Add-DistributionGroupMember –Identity $meeting_room_list_name -Member $meeting_room_name 
+	Add-DistributionGroupMember -Identity $meeting_room_list_name -Member $meeting_room_name
     Write-Host "Added room to room list" -ForegroundColor gray
 
     # List the new room list members

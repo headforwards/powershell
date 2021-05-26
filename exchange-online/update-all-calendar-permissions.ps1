@@ -13,9 +13,11 @@ Param(
 try{
     # Create Office 365 session
     Write-Host "Creating Office 365 session"  -ForegroundColor gray
-    $UserCredential = Get-Credential
-    $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
-    Import-PSSession $Session -DisableNameChecking
+    #$UserCredential = Get-Credential
+    #$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
+    #Import-PSSession $Session -DisableNameChecking
+	$Session = $Session = Connect-ExchangeOnline  -ConnectionUri https://ps.outlook.com/powershell
+	
 
     # Update all calendars and set Default access to Reviewer
     Write-Host "Updating mailbox details" -ForegroundColor gray
