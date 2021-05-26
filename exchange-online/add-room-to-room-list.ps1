@@ -6,7 +6,7 @@
 #>
 
 Param(
-   [Parameter(Mandatory=$true, HelpMessage="Enter a valid meeting room anme or email address")]
+   [Parameter(Mandatory=$true, HelpMessage="Enter a valid meeting room name or email address")]
    [string]$meeting_room_name,
    [Parameter(Mandatory=$true, HelpMessage="Enter a valid meeting room list name")]
    [string]$meeting_room_list_name
