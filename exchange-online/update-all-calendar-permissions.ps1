@@ -12,10 +12,7 @@ Param(
 
 try{
     # Create Office 365 session
-    Write-Host "Creating Office 365 session"  -ForegroundColor gray
-    #$UserCredential = Get-Credential
-    #$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $UserCredential -Authentication Basic -AllowRedirection
-    #Import-PSSession $Session -DisableNameChecking
+    Write-Host "Creating ExchangeOnline session"  -ForegroundColor gray
 	$Session = $Session = Connect-ExchangeOnline  -ConnectionUri https://ps.outlook.com/powershell
 	
 
@@ -35,6 +32,6 @@ catch{
 }
 finally{
     # Close the session
-    Remove-PSSession $Session
+    Disconnect-ExchangeOnline -Confirm:$false
     Write-Host "Session closed"
 }

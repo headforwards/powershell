@@ -33,6 +33,6 @@ catch{
 }
 finally{
     # Close the session
-    Remove-PSSession $Session
+	Disconnect-ExchangeOnline -Confirm:$false
     Write-Host "Session closed"
 }
