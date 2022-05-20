@@ -16,7 +16,7 @@ try{
     # Create ExchangeOnline session
     Write-Host "Creating ExchangeOnline session"  -ForegroundColor gray
     # Requires ExchangeOnline NOT Office 365 session since we use MFA on all Admin users
-	$Session = Connect-ExchangeOnline  -ConnectionUri https://ps.outlook.com/powershell
+	Connect-ExchangeOnline  -ConnectionUri https://ps.outlook.com/powershell
 
     # Add the room to the room list
     Write-Host "Adding room to room list" -ForegroundColor gray
